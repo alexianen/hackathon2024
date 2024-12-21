@@ -8,81 +8,45 @@
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
-/>
+    />
 </head>
 <body>
-    <div class="dropdown" id="toTop">
-        <button class="dropbtn">
-            <i class="ri-menu-line"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div>
     
     <div class="wrapper">
         <h1>Deer Stack</h1>
         <header>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, deserunt.</header>
-        <!--
         <nav>
-            <i class="ri-menu-line"></i>
-            Search bar
-            
-            <div class="dropdown">
-                <p>Enter amount of people:</p>
-                 <select id="nrOfPeople">
-                    <option value="1" class="pplSelector" selected="selected">1</option>
-                    <option value="2" class="pplSelector">2</option>
-                    <option value="3" class="pplSelector">3</option>
-                    <option value="4" class="pplSelector">4</option>
-                    <option value="5" class="pplSelector">5</option>
-                    <option value="6" class="pplSelector">6</option>
-                    <option value="7" class="pplSelector">7</option>
-                    <option value="8" class="pplSelector">8</option>
-                    <option value="9" class="pplSelector">9</option>
-                    <option value="10" class="pplSelector">10</option>
-                 </select>
+            <div class="dropdown" id="toTop">
+                <button class="dropbtn">
+                    <i class="ri-menu-line"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
             </div>
-
-            <p>Stuff</p>
-            <p>More Stuff</p>
-            <p>Yeah</p>
-            <p>This is getting bigger</p>
-            <p>Stuff</p>
-            <p>More Stuff</p>
-            <p>Yeah</p>
-            <p>Bruh</p>
-            <p>Stuff</p>
-            <p>Even More Stuff</p>
-            <p>Yeah</p>
-            <p>What are you searching for?</p>
-
         </nav>
-    -->
-
+        
         <section>    
             <div class="search-container"> 
                 <h1>Ask, and you shall get the questions...</h1> 
                 <input type="text" id="searchBox" placeholder="What do you wish to know?"> 
-                <button>2019</button>
-                <button>2020</button>
-                <button id="searchButton">Search</button>
+                <button id="searchButton">Search</button> 
             </div>
-            <div class="additional-buttons">
-                <button>Text</button>
-                <button>Text</button>
-                <button>Text</button>  
+            <div id="apiResponse" class="response-container">
             </div>
-            
         </section>
+    </div>
 
-      </div>
-    
-
-    </div> 
-    <script src="script.js"></script> 
+    <script>
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const arturl = 'https://serpapi.com/search?engine=google_scholar&api_key=d7648cc41455edfc02f1bb19c1ed8b57e1699300e62a2d608e11ed44d9349275&q=Medicine';
+        fetch(arturl, { mode: 'no-cors' })
+  .then(response => console.log(response)) // Opaque response
+  .catch(error => console.error(error));
+      </script>
+      
 
 </body>
 </html>
