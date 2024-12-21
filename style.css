@@ -1,1 +1,136 @@
+:root {
+    --black: #213555;
+    --blue: #3E5879;
+    --beige: #D8C4B6;
+    --white: #F5EFE7;
 
+    --platinum: #EAEAEA;
+    --periwinkle: #CBC5EA;
+    --pompandpower: #73628A;
+    --delftblue: #313D5A;
+    --gunmetal: #183642;
+}
+
+.wrapper {
+    /*
+    width: 960px;
+    */
+
+    margin: 0;
+
+}
+  
+header {
+    width: 1200px;
+}
+
+nav, section {
+    float: left;
+}
+    
+  
+nav {
+    width: 200px;
+    height: 530px;
+    margin-right: 10px;
+    padding: 20px 0;
+}
+  
+section {
+    width: 990px;
+}
+    
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+  
+body {
+    background: var(--black);
+    color: #FFF;
+    font-family: Helvetica;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    font-family: Helvetica, Sans-Serif;
+
+}
+  
+header,nav,section {
+    border: 1px solid rgba(255,255,255,0.8);
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+  
+header {
+    padding: 20px 0;
+}
+  
+section {
+    padding: 200px 0;
+}
+
+
+search-container { 
+    text-align: center; 
+    padding: 40px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+} 
+ 
+.search-container h1 { 
+    margin-bottom: 20px; 
+    font-size: 24px; 
+} 
+ 
+.search-container input { 
+    padding: 10px; 
+    width: 80%; 
+    max-width: 400px; 
+    border: 1px solid #3E5879; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+    font-size: 16px; 
+} 
+ 
+.search-container button { 
+    padding: 10px 20px; 
+    background-color: var(--blue); 
+    color: #F5EFE7; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+} 
+ 
+.search-container button:hover { 
+    background-color: var(--pompandpower); 
+}
+
+p {
+    color: var(--white);
+}
+
+
+#nrOfPeople {
+    height: 24px;
+    padding: 0px 8px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    background-color: #f8fafc;
+    color: #0d0c22;
+    transition: .5s ease;
+  }
+  
+  
+  .dropdown p {
+    margin-bottom: 8px;
+  }
