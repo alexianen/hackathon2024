@@ -72,6 +72,7 @@ body {
 }
 
 .years {
+  margin-top: 24px;
   display: inline-flex;
   flex-direction: column;
   position: relative;
@@ -85,7 +86,7 @@ body {
   padding: 10px 16px; 
   background-color: var(--blue); 
   border: none; 
-  border-radius: px; 
+  border-radius: 8px; 
   cursor: pointer; 
   font-size: 16px; 
   width: 90px;
@@ -95,4 +96,29 @@ body {
 .years label {
   position: absolute;
   top: -20px;
+  color: black;
+}
+
+.custom-button {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 10px 16px; 
+  border: none; 
+  border-radius: 8px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  width: 90px;
+}
+
+.custom-button:hover {
+  background-color: var(--pompandpower);
+}
+
+.btn:active {
+  background-color: var(--pompandpower) !important;
+  color: black !important;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
 }
