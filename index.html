@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
-      /* Custom Search Bar Styling */
+      /* Existing styles for the layout */
       .custom-searchbar {
         max-width: 100%;
         margin: 20px auto;
@@ -75,7 +75,7 @@
       }
 
       .article-link {
-        display: inline-block;
+        display: block;
         padding: 12px;
         margin: 8px 0;
         background-color: #fff;
@@ -91,21 +91,6 @@
         background-color: #f1f5fb;
         text-decoration: underline;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .summarize-button {
-        background-color: #28a745;
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        font-size: 14px;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-left: 10px;
-      }
-
-      .summarize-button:hover {
-        background-color: #218838;
       }
 
       footer {
@@ -135,7 +120,6 @@
           <nav class="nav nav-masthead justify-content-center float-md-end">
             <a class="nav-link fw-bold py-1 px-0 active custom-a" aria-current="page" href="#">Home</a>
             <a class="nav-link fw-bold py-1 px-0 custom-a" href="#">Features</a>
-            <a class="nav-link fw-bold py-1 px-0 custom-a" href="#">Report a bug</a>
           </nav>
         </div>
       </header>
@@ -175,7 +159,7 @@
       </footer>
     </div>
 
-    <img src="reindeer.png" alt="Reindeer" id="reindeer">
+    <!--<img src="reindeer.png" alt="Reindeer" id="reindeer">-->
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -212,10 +196,7 @@
               // Check if we have any articles
               if (data.organic_results && data.organic_results.length > 0) {
                 resultsContainer.innerHTML = data.organic_results.map(item => `
-                  <div class="article-container">
-                    <a href="${item.link}" target="_blank" class="article-link">${item.title}</a>
-                    <button class="summarize-button" data-article-url="${item.link}">Summarize</button>
-                  </div>
+                  <a href="${item.link}" target="_blank" class="article-link">${item.title}</a>
                 `).join('');
               } else {
                 resultsContainer.innerHTML = "<p class='text-warning'>No results found.</p>";
@@ -225,24 +206,6 @@
               console.error("Fetch error:", error);
               resultsContainer.innerHTML = "<p class='text-danger'>An error occurred while fetching data.</p>";
             });
-        });
-
-        // Attach event listener to the "Summarize" buttons
-        document.addEventListener('click', function (event) {
-          if (event.target && event.target.classList.contains('summarize-button')) {
-            const articleUrl = event.target.getAttribute('data-article-url');
-
-            // Here, call your summarization API or method
-            fetch(`https://your-summarization-api.com/summarize?url=${encodeURIComponent(articleUrl)}`)
-              .then(response => response.json())
-              .then(summaryData => {
-                alert('Summary: ' + summaryData.summary);
-              })
-              .catch(error => {
-                console.error('Error summarizing the article:', error);
-                alert('Failed to summarize the article');
-              });
-          }
         });
       });
     </script>
