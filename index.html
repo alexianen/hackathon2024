@@ -120,6 +120,7 @@
 
 
 
+    <!-- buton care cred ca nu mai trebuie
     <div class="dropdown position-fixed end-60 mb-3 me-3 bd-mode-toggle custom-dropdown">
       <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
               id="bd-theme"
@@ -149,16 +150,16 @@
         </li>
       </ul>
     </div>
-
+  -->
 
     
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
-    <div>
+    <div class="custom-header">
       <h3 class="float-md-start mb-0">Leonea's Summarizer Engine</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
         <a class="nav-link fw-bold py-1 px-0 active custom-a" aria-current="page" href="#">Home</a>
-        <a class="nav-link fw-bold py-1 px-0 custom-a" href="#">Features</a>
+        <a class="nav-link fw-bold py-1 px-0 custom-a" href="#">Version</a>
         <a class="nav-link fw-bold py-1 px-0 custom-a" href="#">Report a bug</a>
       </nav>
     </div>
@@ -167,10 +168,10 @@
   
   <main class="px-2">
     <h1>DeerStack</h1>
-    <p class="lead">What do you wish to search for?</p>
+    <p class="lead">What articles do you wish to search for?</p>
     <nav class="navbar bg-body-tertiary custom-searchbar">
           <form>
-            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search" onclick="showDiv()">
             <div class="years">
                 <label for="year1">From...</label>
                 <input type="number" value="2019" class="yearInput" id="year1"/>
@@ -179,27 +180,31 @@
               <label for="year2">To...</label>
               <input type="number" value="2020" class="yearInput" id="year2"/>
           </div>
-            <button class="btn  custom-button" type="submit">Search</button>
+            <button class="btn custom-button" type="submit" id="searchBtn">Search</button>
           </form>
     </nav>
     <img src="leonea.png" alt="leonea" id="leonea">
 
 
-
+    <div class="second-part" style="display: none;">
     
-  <div class="album py-5 bg-body-tertiary d-flex justify-content-center align-items-center">
+    <div class="loader"></div>
+    <div class="articles" >
+    <p class="lead">Articles found successfully!</p>
+    <div class="album py-5 bg-body-tertiary d-flex justify-content-center align-items-center">
+
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 1</text></svg>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto architecto necessitatibus dolore autem porro numquam praesentium magnam.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -208,13 +213,13 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 2</text></svg>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum accusamus sapiente optio labore impedit quis quod corporis iure cum aut.</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
@@ -223,19 +228,77 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 3</text></svg>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae voluptates fuga incidunt, facere ex alias veniam dolor veritatis possimus..</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+
+    <div class="container bonus-articles" style="display: none;">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 4</text></svg>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto architecto necessitatibus dolore autem porro numquam praesentium magnam.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 5</text></svg>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum accusamus sapiente optio labore impedit quis quod corporis iure cum aut.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Article 6</text></svg>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae voluptates fuga incidunt, facere ex alias veniam dolor veritatis possimus..</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Summ</button>
+                </div>
+                <small class="text-body-secondary">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+        <div id="seemoreBtn">
+        <button type="button" class="btn btn-sm btn-outline-secondary">See more...</button>
+      </div>
+
 
   </main>
 
@@ -244,14 +307,10 @@
 </div>
 
 <div>
-
 </div>
-
-
-
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
-    </body>
+
+</body>
 </html>
-
-
