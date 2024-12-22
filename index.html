@@ -16,7 +16,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <style>
-      /* Existing styles for the layout */
+      /* Custom Search Bar Styling */
       .custom-searchbar {
         max-width: 100%;
         margin: 20px auto;
@@ -42,11 +42,11 @@
         border: none;
         color: white;
         border-radius: 25px;
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 8px 16px; /* Slightly smaller padding */
+        font-size: 14px; /* Smaller font size */
         cursor: pointer;
         transition: background-color 0.3s;
-        width: 30%;
+        width: 25%; /* Slightly smaller width */
       }
 
       .custom-searchbar button:hover {
@@ -75,7 +75,7 @@
       }
 
       .article-link {
-        display: block;
+        display: inline-block;
         padding: 12px;
         margin: 8px 0;
         background-color: #fff;
@@ -91,6 +91,24 @@
         background-color: #f1f5fb;
         text-decoration: underline;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .summarize-button {
+        background-color: #007bff; /* Blue background */
+        border: none;
+        color: white;
+        padding: 6px 12px; /* Smaller padding for a smaller button */
+        font-size: 12px; /* Smaller font size */
+        border-radius: 20px; /* Rounded corners */
+        cursor: pointer;
+        margin-left: 10px;
+        float: right; /* Align the button to the right */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .summarize-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+        transform: scale(1.05); /* Slightly increase size on hover */
       }
 
       footer {
@@ -159,7 +177,6 @@
       </footer>
     </div>
 
-    <!--<img src="reindeer.png" alt="Reindeer" id="reindeer">-->
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -196,7 +213,11 @@
               // Check if we have any articles
               if (data.organic_results && data.organic_results.length > 0) {
                 resultsContainer.innerHTML = data.organic_results.map(item => `
-                  <a href="${item.link}" target="_blank" class="article-link">${item.title}</a>
+                  <div class="article-container" style="position: relative;">
+                    <a href="${item.link}" target="_blank" class="article-link">${item.title}</a>
+                    <button class="summarize-button" data-article-url="${item.link}" style="position: absolute; right: 10
+                                        <button class="summarize-button" data-article-url="${item.link}" style="position: absolute; right: 10px;">Summarize</button>
+                  </div>
                 `).join('');
               } else {
                 resultsContainer.innerHTML = "<p class='text-warning'>No results found.</p>";
@@ -206,6 +227,24 @@
               console.error("Fetch error:", error);
               resultsContainer.innerHTML = "<p class='text-danger'>An error occurred while fetching data.</p>";
             });
+        });
+
+        // Attach event listener to the "Summarize" buttons
+        document.addEventListener('click', function (event) {
+          if (event.target && event.target.classList.contains('summarize-button')) {
+            const articleUrl = event.target.getAttribute('data-article-url');
+
+            // Here, call your summarization API or method
+            fetch(`https://your-summarization-api.com/summarize?url=${encodeURIComponent(articleUrl)}`)
+              .then(response => response.json())
+              .then(summaryData => {
+                alert('Summary: ' + summaryData.summary);
+              })
+              .catch(error => {
+                console.error('Error summarizing the article:', error);
+                alert('Failed to summarize the article');
+              });
+          }
         });
       });
     </script>
