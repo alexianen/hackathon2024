@@ -1,38 +1,29 @@
-document.addEventListener("DOMContentLoaded", () => {
-    document.getElementById("searchButton").addEventListener("click", async () => {
-        const query = document.getElementById("searchBox").value.trim();
-        if (!query) {
-            displayError("Please enter a search query.");
-            return;
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('search-input');
+    const articles = document.querySelectorAll('.article');
+    const nothingAlert = document.getElementById('nothing-alert');
+  
+    function filterArticles(searchQuery) {
+      let matches = 0;
+  
+      articles.forEach(article => {
+        const title = article.querySelector('.article-title').textContent.toLowerCase();
+        const content = article.querySelector('.article-content').textContent.toLowerCase();
+  
+        if (title.includes(searchQuery) || content.includes(searchQuery)) {
+          article.style.display = 'block';
+          matches++;
+        } else {
+          article.style.display = 'none';
         }
-        const apiKey = "d7648cc41455edfc02f1bb19c1ed8b57e1699300e62a2d608e11ed44d9349275";
-        const baseUrl = "https://serpapi.com/search";
-        const apiUrl = `${baseUrl}?engine=google_scholar&api_key=${apiKey}&q=${encodeURIComponent(query)}`;
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            displayResults(data);
-        } catch (error) {
-            displayError(error.message);
-        }
+      });
+  
+      nothingAlert.style.display = matches === 0 ? 'block' : 'none';
+    }
+  
+    searchInput.addEventListener('input', function () {
+      const searchQuery = searchInput.value.trim().toLowerCase();
+      filterArticles(searchQuery);
     });
-
-    function displayResults(data) {
-        const responseContainer = document.getElementById("apiResponse");
-        responseContainer.innerHTML = `
-            <h2>Results:</h2>
-            <pre>${JSON.stringify(data, null, 2)}</pre>
-        `;
-    }
-
-    function displayError(message) {
-        const responseContainer = document.getElementById("apiResponse");
-        responseContainer.innerHTML = `
-            <h2>Error:</h2>
-            <p>${message}</p>
-        `;
-    }
-});
+  });
+  

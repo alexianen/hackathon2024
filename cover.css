@@ -22,8 +22,13 @@
   --pompandpower: #73628A;
   --delftblue: #313D5A;
   --gunmetal: #183642;
+
+  --aqua: #bcd4e6;
 }
 
+.px-2 {
+  top: -40px !important;
+}
 
 
 /*
@@ -84,12 +89,13 @@ body {
   position: relative;
 
   padding: 10px 16px; 
-  background-color: var(--blue); 
+  background-color: var(--aqua); 
   border: none; 
   border-radius: 8px; 
   cursor: pointer; 
   font-size: 16px; 
   width: 90px;
+  color: black;
   
 }
 
@@ -121,4 +127,13 @@ body {
 
 a:focus, a:hover {
   text-decoration: none;
+}
+
+#leonea {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: 0;
+  margin-right: 24px;
+  bottom: 40px;
 }
